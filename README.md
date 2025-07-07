@@ -1,6 +1,4 @@
 # 📦 Scorecard Starter
-```
-```
 
 This is a restricted version of the app, which is limited to loading only pre-calculated data.
 
