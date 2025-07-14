@@ -19,8 +19,14 @@ def main():
 
     st.header("Credit Scorecard - Valuations Summary")
 
-    day_delta = 1 if datetime.today().weekday() > 0 else 3
-    the_date = (datetime.today()-timedelta(days=day_delta)).strftime('%Y-%m-%d') # yesterday
+    today_weekday = datetime.today().weekday()
+    if  0 < today_weekday < 6:
+        day_delta = 1
+    elif today_weekday == 0:
+        day_delta = 3
+    else:
+        day_delta = 2
+    the_date = (datetime.today()-timedelta(days=day_delta)).strftime('%Y-%m-%d')
 
     with st.form(key='my_form'):
         user_input = st.text_input("Enter a date (e.g., YYYY-MM-DD):", key='text_input',value=the_date)
